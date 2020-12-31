@@ -22,7 +22,7 @@ class PokemonListServiceShould: BaseUnitTest() {
     private val backendErrorException = RuntimeException("Backend error")
 
     @Test
-    fun fetchPlaylistsFromAPI() = runBlockingTest {
+    fun fetchAllPokemonsFromApi() = runBlockingTest {
         service = PokemonListServiceImpl(api)
         service.fetchAllPokemons(OFFSET, LIMIT).first()
         verify(api, times(1)).fetchAllPokemons(OFFSET, LIMIT)

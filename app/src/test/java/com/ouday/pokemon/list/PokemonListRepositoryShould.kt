@@ -24,7 +24,7 @@ class PokemonListRepositoryShould : BaseUnitTest() {
     private val backendErrorException = RuntimeException("Backend error")
 
     @Test
-    fun fetchAllPokemonssFromService() = runBlockingTest {
+    fun fetchAllPokemonsFromService() = runBlockingTest {
         val repository = mockSuccessfulCase()
         repository.fetchAllPokemons(OFFSET, LIMIT)
         verify(service, times(1)).fetchAllPokemons(OFFSET, LIMIT)
