@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.ouday.pokemon.list.model.NamedResponseModel
+import com.ouday.pokemon.list.model.PokemonName
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
@@ -20,7 +20,7 @@ class PokemonListRepositoryShould : BaseUnitTest() {
 
     private val service: PokemonListService = mock()
     private val pokemonResponse: PokemonListResponse = mock()
-    private val pokemonNames = mock<List<NamedResponseModel>>()
+    private val pokemonNames = mock<List<PokemonName>>()
     private val backendErrorException = RuntimeException("Backend error")
 
     @Test

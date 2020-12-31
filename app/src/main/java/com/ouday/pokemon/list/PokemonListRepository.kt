@@ -1,8 +1,8 @@
 package com.ouday.pokemon.list
 
-import com.ouday.pokemon.list.model.NamedResponseModel
+import com.ouday.pokemon.list.model.PokemonName
 import kotlinx.coroutines.flow.Flow
 
 interface PokemonListRepository {
-    suspend fun fetchAllPokemons(offset: Int, limit: Int) : Flow<Result<List<NamedResponseModel>?>>
+    suspend fun fetchAllPokemons(offset: Int, limit: Int) : Flow<Result<List<PokemonName>?>>
 }

@@ -3,7 +3,7 @@ package com.ouday.pokemon.list.model.response
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import com.ouday.pokemon.list.model.NamedResponseModel
+import com.ouday.pokemon.list.model.PokemonName
 
 @Parcelize
 data class PokemonListResponse (
@@ -18,7 +18,7 @@ data class PokemonListResponse (
     var previous: String? = null,
 
     @SerializedName("results")
-    var results: List<NamedResponseModel>? = null
+    var results: List<PokemonName>? = null
 
 ): Parcelable
 
