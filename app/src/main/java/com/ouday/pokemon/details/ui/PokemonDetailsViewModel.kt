@@ -4,7 +4,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ouday.pokemon.core.Worker
-import com.ouday.pokemon.details.PokemonDetailsUseCase
+import com.ouday.pokemon.details.usecase.PokemonDetailsUseCase
 import com.ouday.pokemon.details.data.model.response.PokemonDetailsResponse
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

@@ -7,6 +7,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.ouday.pokemon.core.Worker
 import com.ouday.pokemon.details.data.model.response.PokemonDetailsResponse
 import com.ouday.pokemon.details.ui.PokemonDetailsViewModel
+import com.ouday.pokemon.details.usecase.PokemonDetailsUseCase
 import com.ouday.pokemon.utils.BaseUnitTest
 import com.ouday.pokemon.utils.captureValues
 import com.ouday.pokemon.utils.getValueForTest
