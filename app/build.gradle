@@ -68,8 +68,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
     //endregion API Dependencies
 
-    kapt 'com.google.dagger:hilt-android-compiler:2.28-alpha'
+    //region image loader dependencies
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    //endregion image loader dependencies
 
+    kapt 'com.google.dagger:hilt-android-compiler:2.28-alpha'
 
     testImplementation 'junit:junit:4.13'
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
