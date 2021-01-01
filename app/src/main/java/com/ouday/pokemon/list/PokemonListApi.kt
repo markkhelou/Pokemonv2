@@ -7,7 +7,7 @@ import com.ouday.pokemon.list.model.response.PokemonListResponse
 
 interface PokemonListApi {
 
-    @GET("/pokemon")
+    @GET("pokemon")
     @Headers("Cache-control: no-cache")
     suspend fun fetchAllPokemons(
         @Query("offset") offset: Int,
