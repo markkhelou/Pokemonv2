@@ -1,6 +1,6 @@
-package com.ouday.pokemon.list
+package com.ouday.pokemon.list.data.repo
 
-import com.ouday.pokemon.list.model.PokemonName
+import com.ouday.pokemon.list.data.model.PokemonName
 import kotlinx.coroutines.flow.Flow
 
 interface PokemonListRepository {

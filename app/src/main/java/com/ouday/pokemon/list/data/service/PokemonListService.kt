@@ -1,6 +1,6 @@
-package com.ouday.pokemon.list
+package com.ouday.pokemon.list.data.service
 
-import com.ouday.pokemon.list.model.response.PokemonListResponse
+import com.ouday.pokemon.list.data.model.response.PokemonListResponse
 import kotlinx.coroutines.flow.Flow
 
 interface PokemonListService {

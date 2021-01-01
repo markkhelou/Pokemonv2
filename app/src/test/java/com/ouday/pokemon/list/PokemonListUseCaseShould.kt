@@ -4,7 +4,10 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.ouday.pokemon.list.model.PokemonName
+import com.ouday.pokemon.list.data.repo.PokemonListRepository
+import com.ouday.pokemon.list.data.model.PokemonName
+import com.ouday.pokemon.list.usecase.PokemonListUseCaseImpl
+import com.ouday.pokemon.list.usecase.URL_IMAGE
 import com.ouday.pokemon.utils.BaseUnitTest
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.first

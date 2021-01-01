@@ -1,10 +1,11 @@
-package com.ouday.pokemon.list
+package com.ouday.pokemon.list.ui
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ouday.pokemon.core.Worker
-import com.ouday.pokemon.list.model.Pokemon
+import com.ouday.pokemon.list.data.model.Pokemon
+import com.ouday.pokemon.list.usecase.PokemonListUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject

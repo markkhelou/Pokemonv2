@@ -5,7 +5,9 @@ import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.ouday.pokemon.core.Worker
-import com.ouday.pokemon.list.model.Pokemon
+import com.ouday.pokemon.list.data.model.Pokemon
+import com.ouday.pokemon.list.ui.PokemonListViewModel
+import com.ouday.pokemon.list.usecase.PokemonListUseCase
 import com.ouday.pokemon.utils.BaseUnitTest
 import com.ouday.pokemon.utils.captureValues
 import com.ouday.pokemon.utils.getValueForTest

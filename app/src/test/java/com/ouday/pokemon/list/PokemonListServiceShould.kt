@@ -4,10 +4,12 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import com.ouday.pokemon.list.data.api.PokemonListApi
+import com.ouday.pokemon.list.data.service.PokemonListServiceImpl
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import com.ouday.pokemon.list.model.response.PokemonListResponse
+import com.ouday.pokemon.list.data.model.response.PokemonListResponse
 import com.ouday.pokemon.utils.BaseUnitTest
 import junit.framework.TestCase.assertEquals
 

@@ -1,9 +1,9 @@
-package com.ouday.pokemon.list.model.response
+package com.ouday.pokemon.list.data.model.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import com.ouday.pokemon.list.model.PokemonName
+import com.ouday.pokemon.list.data.model.PokemonName
 
 @Parcelize
 data class PokemonListResponse (

@@ -1,6 +1,7 @@
-package com.ouday.pokemon.list
+package com.ouday.pokemon.list.usecase
 
-import com.ouday.pokemon.list.model.Pokemon
+import com.ouday.pokemon.list.data.repo.PokemonListRepository
+import com.ouday.pokemon.list.data.model.Pokemon
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

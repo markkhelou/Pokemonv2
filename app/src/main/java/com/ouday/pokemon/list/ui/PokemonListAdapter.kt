@@ -1,4 +1,4 @@
-package com.ouday.pokemon.list
+package com.ouday.pokemon.list.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ouday.pokemon.R
-import com.ouday.pokemon.list.model.Pokemon
+import com.ouday.pokemon.list.data.model.Pokemon
 import kotlinx.android.synthetic.main.viewholder_pokemon_list.view.*
 import javax.inject.Inject
 

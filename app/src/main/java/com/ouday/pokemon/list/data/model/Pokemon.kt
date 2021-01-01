@@ -1,4 +1,4 @@
-package com.ouday.pokemon.list.model
+package com.ouday.pokemon.list.data.model
 
 data class Pokemon(
     val id: Int?,

@@ -1,7 +1,8 @@
-package com.ouday.pokemon.list
+package com.ouday.pokemon.list.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.ouday.pokemon.list.usecase.PokemonListUseCase
 import javax.inject.Inject
 
 class PokemonListViewModelFactory @Inject constructor(
