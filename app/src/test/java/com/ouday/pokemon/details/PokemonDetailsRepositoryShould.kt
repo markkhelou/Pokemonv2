@@ -4,6 +4,9 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import com.ouday.pokemon.details.data.model.response.PokemonDetailsResponse
+import com.ouday.pokemon.details.data.repo.PokemonDetailsRepositoryImpl
+import com.ouday.pokemon.details.data.service.PokemonDetailsService
 import com.ouday.pokemon.utils.BaseUnitTest
 import junit.framework.TestCase
 import kotlinx.coroutines.flow.first
@@ -66,7 +69,9 @@ class PokemonDetailsRepositoryShould: BaseUnitTest() {
                 emit(Result.failure(backendErrorException))
             }
         )
-        return PokemonDetailsRepositoryImpl(service)
+        return PokemonDetailsRepositoryImpl(
+            service
+        )
     }
 
     private suspend fun mockSuccessfulCase(): PokemonDetailsRepositoryImpl {
@@ -74,7 +79,9 @@ class PokemonDetailsRepositoryShould: BaseUnitTest() {
             .thenReturn(flow {
                 emit(Result.success(pokemonResponse))
             })
-        return PokemonDetailsRepositoryImpl(service)
+        return PokemonDetailsRepositoryImpl(
+            service
+        )
     }
 
 }

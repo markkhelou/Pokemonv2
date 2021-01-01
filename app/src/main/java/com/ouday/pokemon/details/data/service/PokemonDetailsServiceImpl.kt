@@ -1,5 +1,6 @@
-package com.ouday.pokemon.details
+package com.ouday.pokemon.details.data.service
 
+import com.ouday.pokemon.details.data.api.PokemonDetailsApi
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

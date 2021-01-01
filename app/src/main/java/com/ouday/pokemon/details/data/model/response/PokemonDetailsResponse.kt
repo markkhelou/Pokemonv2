@@ -1,6 +1,4 @@
-package com.ouday.pokemon.details
-
-import com.ouday.pokemon.details.response.*
+package com.ouday.pokemon.details.data.model.response
 
 data class PokemonDetailsResponse(
     val damage_relations: DamageRelations,

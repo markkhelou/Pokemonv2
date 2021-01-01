@@ -1,5 +1,6 @@
-package com.ouday.pokemon.details
+package com.ouday.pokemon.details.data.api
 
+import com.ouday.pokemon.details.data.model.response.PokemonDetailsResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path

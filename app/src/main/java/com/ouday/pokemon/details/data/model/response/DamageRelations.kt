@@ -1,4 +1,4 @@
-package com.ouday.pokemon.details.response
+package com.ouday.pokemon.details.data.model.response
 
 data class DamageRelations(
     val double_damage_from: List<DoubleDamageFrom>,

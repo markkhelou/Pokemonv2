@@ -4,6 +4,9 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import com.ouday.pokemon.details.data.api.PokemonDetailsApi
+import com.ouday.pokemon.details.data.model.response.PokemonDetailsResponse
+import com.ouday.pokemon.details.data.service.PokemonDetailsServiceImpl
 import com.ouday.pokemon.utils.BaseUnitTest
 import junit.framework.TestCase
 import kotlinx.coroutines.flow.first
@@ -21,7 +24,8 @@ class PokemonDetailsServiceShould : BaseUnitTest(){
 
     @Test
     fun fetchPokemonDetailsFromApi() = runBlockingTest {
-        service = PokemonDetailsServiceImpl(api)
+        service =
+            PokemonDetailsServiceImpl(api)
         service.fetchPokemonDetails(POKEMON_ID).first()
         verify(api, times(1)).fetchPokemonDetailsAsync(POKEMON_ID)
     }
@@ -47,13 +51,15 @@ class PokemonDetailsServiceShould : BaseUnitTest(){
     private suspend fun mockErrorCase() {
         whenever(api.fetchPokemonDetailsAsync(POKEMON_ID))
             .thenThrow(backendErrorException)
-        service = PokemonDetailsServiceImpl(api)
+        service =
+            PokemonDetailsServiceImpl(api)
     }
 
     private suspend fun mockSuccessfulCase() {
         whenever(api.fetchPokemonDetailsAsync(POKEMON_ID))
             .thenReturn(pokemonResponse)
-        service = PokemonDetailsServiceImpl(api)
+        service =
+            PokemonDetailsServiceImpl(api)
     }
 
 }

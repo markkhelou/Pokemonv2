@@ -4,6 +4,8 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import com.ouday.pokemon.details.data.model.response.PokemonDetailsResponse
+import com.ouday.pokemon.details.data.repo.PokemonDetailsRepository
 import com.ouday.pokemon.utils.BaseUnitTest
 import junit.framework.TestCase
 import kotlinx.coroutines.flow.first
