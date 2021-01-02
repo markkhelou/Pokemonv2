@@ -1,14 +1,13 @@
 package com.ouday.pokemon.list.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.ouday.pokemon.R
 import com.ouday.pokemon.core.Status
 import com.ouday.pokemon.details.ui.PokemonDetailsFragment
@@ -16,11 +15,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_pokemon_list.*
 import javax.inject.Inject
 
+
 private const val CHUNK = 40
-private const val MAX_NUMBER_OF_POKEMONS = 1118
 
 @AndroidEntryPoint
 class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
+
+    private var stopLoadMore: Boolean = false
 
     @Inject
     lateinit var viewModelFactory: PokemonListViewModelFactory
@@ -36,10 +37,24 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
         setupPokemonRecyclerView()
         viewModel?.pokemonsWorker?.observe(viewLifecycleOwner, Observer { worker ->
             if (worker.status == Status.SUCCESS) {
-                worker.data?.let { adapter.addPokemons(it) }
+                worker.data?.let {
+                    stopLoadMore = it.size < CHUNK
+                    adapter.addPokemons(it)
+                }
+            } else if (worker.status == Status.ERROR) {
+                showRetry()
             }
         })
         loadMorePokemons()
+    }
+
+    private fun showRetry() {
+        val snackbar =
+            Snackbar.make(coordinatorLayout, "Oops, failed to load pokemons", Snackbar.LENGTH_INDEFINITE)
+        snackbar.setAction("Retry") {
+            loadMorePokemons()
+        }
+        snackbar.show()
     }
 
     private fun loadMorePokemons() {
@@ -50,7 +65,7 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
         rvPokemons.layoutManager = GridLayoutManager(requireContext(), 2)
         rvPokemons.adapter = adapter
         adapter.onLoadMoreListener =
-            { if (adapter.itemCount < MAX_NUMBER_OF_POKEMONS) loadMorePokemons() }
+            { if (!stopLoadMore) loadMorePokemons() }
         adapter.setOnPokemonClicked {
             Navigation.findNavController(requireView())
                 .navigate(
