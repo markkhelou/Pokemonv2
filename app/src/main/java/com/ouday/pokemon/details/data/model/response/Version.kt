@@ -1,6 +1,6 @@
 package com.ouday.pokemon.details.data.model.response
 
-data class DoubleDamageTo(
+data class Version(
     val name: String,
     val url: String
 )

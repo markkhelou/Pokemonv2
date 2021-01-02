@@ -52,6 +52,7 @@ class PokemonListAdapter @Inject constructor() :
                 .load(pokemon.pokemonImage)
                 .placeholder(R.drawable.ic_pokeball)
                 .into(itemView.imageFront)
+            itemView.setOnClickListener { onPokemonClicked?.invoke(pokemon) }
         }
     }
 

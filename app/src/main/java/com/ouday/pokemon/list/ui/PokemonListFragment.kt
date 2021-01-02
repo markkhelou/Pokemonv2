@@ -7,17 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ouday.pokemon.R
 import com.ouday.pokemon.core.Status
+import com.ouday.pokemon.details.ui.PokemonDetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_pokemon_list.*
 import javax.inject.Inject
 
 private const val CHUNK = 40
+private const val MAX_NUMBER_OF_POKEMONS = 1118
 
 @AndroidEntryPoint
-class PokemonListFragment : Fragment() {
+class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
 
     @Inject
     lateinit var viewModelFactory: PokemonListViewModelFactory
@@ -26,11 +29,6 @@ class PokemonListFragment : Fragment() {
     lateinit var adapter: PokemonListAdapter
 
     private var viewModel: PokemonListViewModel? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,14 +42,22 @@ class PokemonListFragment : Fragment() {
         loadMorePokemons()
     }
 
-    private fun loadMorePokemons(){
+    private fun loadMorePokemons() {
         viewModel?.fetchPokemons(adapter.itemCount, adapter.itemCount + CHUNK)
     }
 
     private fun setupPokemonRecyclerView() {
         rvPokemons.layoutManager = GridLayoutManager(requireContext(), 2)
         rvPokemons.adapter = adapter
-        adapter.onLoadMoreListener = {if (adapter.itemCount < 1118)loadMorePokemons()}
+        adapter.onLoadMoreListener =
+            { if (adapter.itemCount < MAX_NUMBER_OF_POKEMONS) loadMorePokemons() }
+        adapter.setOnPokemonClicked {
+            Navigation.findNavController(requireView())
+                .navigate(
+                    R.id.action_pokemonListFragment_to_pokemonDetailsFragment,
+                    PokemonDetailsFragment.wrapBundle(it.id!!)
+                )
+        }
     }
 
 }

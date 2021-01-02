@@ -1,12 +1,21 @@
 package com.ouday.pokemon.details.data.model.response
 
 data class PokemonDetailsResponse(
-    val damage_relations: DamageRelations,
+    val abilities: List<Ability>,
+    val base_experience: Int,
+    val forms: List<Form>,
     val game_indices: List<GameIndice>,
-    val generation: Generation,
+    val height: Int,
+    val held_items: List<Any>,
     val id: Int,
-    val move_damage_class: MoveDamageClass,
+    val is_default: Boolean,
+    val location_area_encounters: String,
     val moves: List<Move>,
     val name: String,
-    val names: List<Name>
+    val order: Int,
+    val species: Species,
+    val sprites: Sprites,
+    val stats: List<Stat>,
+    val types: List<Type>,
+    val weight: Int
 )

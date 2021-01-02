@@ -1,6 +1,6 @@
 package com.ouday.pokemon.details.data.model.response
 
-data class Language(
+data class VersionGroup(
     val name: String,
     val url: String
 )
