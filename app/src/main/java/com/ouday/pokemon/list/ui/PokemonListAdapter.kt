@@ -15,34 +15,39 @@ class PokemonListAdapter @Inject constructor() :
     private val data = ArrayList<Pokemon>()
     private var onPokemonClicked: ((namedResponseModel: Pokemon) -> Any)? = null
 
-    var onLoadMoreListener: (()->Unit)? = null
+    var onLoadMoreListener: (() -> Unit)? = null
 
     fun setOnPokemonClicked(onPokemonClicked: ((namedResponseModel: Pokemon) -> Any)): PokemonListAdapter {
         this.onPokemonClicked = onPokemonClicked
         return this
     }
 
-    fun addPokemons(pokemons: List<Pokemon>){
+    fun addPokemons(pokemons: List<Pokemon>) {
         data.addAll(pokemons)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): PokemonViewHolder {
         return PokemonViewHolder(
-            ViewholderPokemonListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            ViewholderPokemonListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     override fun onBindViewHolder(pokemonViewHolder: PokemonViewHolder, position: Int) {
         pokemonViewHolder.bind(data[position])
-        if (position+1 == itemCount) onLoadMoreListener?.invoke()
+        if (position + 1 == itemCount) onLoadMoreListener?.invoke()
     }
 
     override fun getItemCount() = data.size
 
-    inner class PokemonViewHolder(private val binding: ViewholderPokemonListBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PokemonViewHolder(private val binding: ViewholderPokemonListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
             binding.pokemonName.text = pokemon.name
-            binding.pokemonNumber.text = "#${pokemon.id}"
+            binding.pokemonNumber.text = String.format(
+                itemView.context.getText(R.string.lblPokemonNumber).toString(),
+                "${pokemon.id}"
+            )
             Glide
                 .with(itemView.context)
                 .load(pokemon.pokemonImage)

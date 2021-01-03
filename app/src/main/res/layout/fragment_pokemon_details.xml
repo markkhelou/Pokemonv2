@@ -27,31 +27,29 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Category"
-                android:textColor="#252525"
+                android:text="@string/Category"
+                android:textColor="@color/onBackgroundLight"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/lblTypes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
                 android:textSize="16sp"
                 tools:text="Fire" />
 
             <include layout="@layout/divider" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abilities"
-                android:textColor="#252525"
+                android:text="@string/Abilities"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/lblAbilities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
                 android:textSize="16sp"
                 tools:text=" - " />
 
@@ -60,15 +58,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Moves"
-                android:textColor="#252525"
+                android:text="@string/Moves"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/lblMoves"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
                 android:textSize="16sp"
                 tools:text="Punch" />
 
