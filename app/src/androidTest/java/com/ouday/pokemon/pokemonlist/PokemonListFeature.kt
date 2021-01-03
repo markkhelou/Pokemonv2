@@ -10,6 +10,7 @@ import androidx.test.filters.MediumTest
 import com.ouday.pokemon.R
 import com.ouday.pokemon.core.launchFragmentInHiltContainer
 import com.ouday.pokemon.core.nthChildOf
+import com.ouday.pokemon.details.di.PokemonDetailsModule
 import com.ouday.pokemon.list.di.PokemonListModule
 import com.ouday.pokemon.list.ui.PokemonListFragment
 import com.schibsted.spain.barista.assertion.BaristaRecyclerViewAssertions
@@ -27,7 +28,9 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @MediumTest
 @ExperimentalCoroutinesApi
-@UninstallModules(PokemonListModule::class)
+@UninstallModules(
+    PokemonListModule::class,
+    PokemonDetailsModule::class)
 @HiltAndroidTest
 class PokemonListFeature {
 

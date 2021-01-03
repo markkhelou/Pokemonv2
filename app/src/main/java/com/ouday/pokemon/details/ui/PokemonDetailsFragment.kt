@@ -14,20 +14,18 @@ import kotlinx.android.synthetic.main.fragment_pokemon_details.*
 import kotlinx.android.synthetic.main.fragment_pokemon_details_abilities.*
 import kotlinx.android.synthetic.main.fragment_pokemon_details_category.*
 import kotlinx.android.synthetic.main.fragment_pokemon_details_moves.*
-import java.lang.StringBuilder
 import javax.inject.Inject
-
 
 private const val BUNDLE_KEY_POKEMON_ID = "BUNDLE_KEY_POKEMON_ID"
 
 @AndroidEntryPoint
 class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
+    lateinit var viewModel: PokemonDetailsViewModel
+    private var pokemonID: Int = -1
+
     @Inject
     lateinit var viewModelFactory: PokemonDetailsViewModelFactory
-
-    private lateinit var viewModel: PokemonDetailsViewModel
-    private var pokemonID: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +52,12 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
     }
 
     private fun showError() {
-        Snackbar
-            .make(coordinatorLayout, "Oops, failed to get pokemon details", Snackbar.LENGTH_LONG)
-            .show()
+        val snackbar =
+            Snackbar.make(coordinatorLayout, "Oops, failed to get pokemon details", Snackbar.LENGTH_INDEFINITE)
+        snackbar.setAction("Retry") {
+            viewModel.fetchPokemonDetails(pokemonID)
+        }
+        snackbar.show()
     }
 
     private fun binData(pokemonDetails: PokemonDetailsResponse?) {
