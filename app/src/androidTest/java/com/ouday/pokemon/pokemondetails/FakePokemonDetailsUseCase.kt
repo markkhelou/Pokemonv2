@@ -17,7 +17,7 @@ object FakePokemonDetailsUseCase : PokemonDetailsUseCase {
         delay(500)
         when (useCaseState) {
             UseCaseState.SUCCESS -> emit(Result.success(pokemonDetails))
-            else -> emit(Result.failure(Exception("Backend error")))
+            else -> emit(Result.failure<PokemonDetailsResponse>(Exception("Backend error")))
         }
     }
 

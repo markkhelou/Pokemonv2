@@ -31,8 +31,8 @@ class PokemonListUseCaseImpl @Inject constructor(
     private fun getPokemonIdFromUrl(pokemonUrl: String?): Int?{
         var url = pokemonUrl?.trim().toString()
         url = if (url[url.length-1] == '/') url.substring(0, url.length-1) else url
-        var arr = url?.split("/")
-        return arr?.get(arr.size-1)?.toIntOrNull()
+        val arr = url.split("/")
+        return arr.get(arr.size-1).toIntOrNull()
     }
 
     private fun getPokemonImageUrl(pokemonId: Int?) = "$URL_IMAGE$pokemonId.png"

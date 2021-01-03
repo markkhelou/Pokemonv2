@@ -25,7 +25,7 @@ object FakePokemonListUseCase : PokemonListUseCase {
                     )
                 )
             )
-            else -> emit(Result.failure(Exception("Backend error")))
+            else -> emit(Result.failure<List<Pokemon>?>(Exception("Backend error")))
         }
     }
 

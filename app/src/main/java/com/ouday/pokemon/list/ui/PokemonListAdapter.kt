@@ -1,13 +1,12 @@
 package com.ouday.pokemon.list.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ouday.pokemon.R
+import com.ouday.pokemon.databinding.ViewholderPokemonListBinding
 import com.ouday.pokemon.list.data.model.Pokemon
-import kotlinx.android.synthetic.main.viewholder_pokemon_list.view.*
 import javax.inject.Inject
 
 class PokemonListAdapter @Inject constructor() :
@@ -17,7 +16,6 @@ class PokemonListAdapter @Inject constructor() :
     private var onPokemonClicked: ((namedResponseModel: Pokemon) -> Any)? = null
 
     var onLoadMoreListener: (()->Unit)? = null
-    var isLoadMoreEnabled = true
 
     fun setOnPokemonClicked(onPokemonClicked: ((namedResponseModel: Pokemon) -> Any)): PokemonListAdapter {
         this.onPokemonClicked = onPokemonClicked
@@ -31,9 +29,7 @@ class PokemonListAdapter @Inject constructor() :
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): PokemonViewHolder {
         return PokemonViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.viewholder_pokemon_list, null, false)
-        )
+            ViewholderPokemonListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(pokemonViewHolder: PokemonViewHolder, position: Int) {
@@ -43,15 +39,15 @@ class PokemonListAdapter @Inject constructor() :
 
     override fun getItemCount() = data.size
 
-    inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class PokemonViewHolder(private val binding: ViewholderPokemonListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
-            itemView.pokemon_name.text = pokemon.name
-            itemView.pokemon_number.text = "#${pokemon.id}"
+            binding.pokemonName.text = pokemon.name
+            binding.pokemonNumber.text = "#${pokemon.id}"
             Glide
                 .with(itemView.context)
                 .load(pokemon.pokemonImage)
                 .placeholder(R.drawable.ic_pokeball)
-                .into(itemView.imageFront)
+                .into(binding.imageFront)
             itemView.setOnClickListener { onPokemonClicked?.invoke(pokemon) }
         }
     }

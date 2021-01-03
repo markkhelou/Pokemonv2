@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.progressindicator.ProgressIndicator
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressCircleDeterminate"
-        style="@style/Widget.MaterialComponents.ProgressIndicator.Circular.Indeterminate"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center" />
@@ -24,11 +24,53 @@
             android:paddingTop="24dp"
             android:paddingHorizontal="16dp">
 
-            <include layout="@layout/fragment_pokemon_details_category" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textColor="#252525"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lblTypes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="16sp"
+                tools:text="Fire" />
+
             <include layout="@layout/divider" />
-            <include layout="@layout/fragment_pokemon_details_abilities" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abilities"
+                android:textColor="#252525"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lblAbilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="16sp"
+                tools:text=" - " />
+
             <include layout="@layout/divider" />
-            <include layout="@layout/fragment_pokemon_details_moves" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Moves"
+                android:textColor="#252525"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lblMoves"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="16sp"
+                tools:text="Punch" />
 
         </LinearLayout>
     </ScrollView>

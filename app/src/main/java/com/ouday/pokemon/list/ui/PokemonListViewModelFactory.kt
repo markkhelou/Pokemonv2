@@ -9,6 +9,7 @@ class PokemonListViewModelFactory @Inject constructor(
     private val useCase: PokemonListUseCase
 ) : ViewModelProvider.Factory{
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return PokemonListViewModel(useCase) as T
     }
