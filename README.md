@@ -25,6 +25,8 @@ Table of Contents
 # Pokémon V2
 Pokémon V2 is simple app to hit the Pokeapi and show a list of pokemons, that shows details when items on the list are tapped (a typical master/detail app).
 
+![alt text](https://github.com/oudaykhaled/Pokemonv2/blob/master/demo.gif?raw=true)
+
 We'll be using the most viewed section of this API.
 
 Two APIs to consider here:
