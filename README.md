@@ -86,6 +86,7 @@ Build Pipeline
 
 These steps can be run manually or using a Continous Integration tool such as [Jenkins](https://jenkins.io/). This project use Github actions for CI/CD, you can check this [documentation](https://docs.github.com/en) for more information.
 
+
 ## Checkout the Code
 
 Checkout and run the code
@@ -123,6 +124,8 @@ or using Fastlane:
 
 Linting results are available at `pokemonv2/app/build/reports/lint-results.html`
 
+![alt text](https://github.com/oudaykhaled/Pokemonv2/blob/master/lint%20report.PNG?raw=true)
+
 ## Testing
 Tests in Android are separated into 2 types:
 
@@ -154,7 +157,8 @@ From Android Studio
 
 * Right Clicking on the Class and select "Run <test class>
 * To see the coverage we have t the select "Run <test class> with Coverage"
-
+![alt text](https://github.com/oudaykhaled/Pokemonv2/blob/master/unit%20test.PNG?raw=true)
+ 
 ## Test Coverage
 
 The test coverage uses the [JaCoCo](http://www.eclemma.org/jacoco/) library
@@ -210,6 +214,7 @@ jobs:
         run: ./gradlew build
 
 ```
+![alt text](https://github.com/oudaykhaled/Pokemonv2/blob/master/ci-cd.PNG?raw=true)
 
 Below is an illustration of the pipeline that Github actions will execute
 
