@@ -53,11 +53,11 @@ This sample follows the [clean architecture](https://blog.cleancoder.com/uncle-b
 The key to remember with the model is that it holds the information, but not behaviors or services that manipulate the information. It is not responsible for formatting text to look pretty on the screen, or fetching a list of items from a remote server (in fact, in that list, each item would most likely be a model of its own). Business logic is typically kept separate from the model, and encapsulated in other classes that act on the model.
 
 ## Data layer
-Provide all required data to the repository in form of models/entities.
+Provides all required data to the repository in form of models/entities.
 ##### Remote data source
 Manage all server/external API calls.
 ##### Local data source
-Manage all local data storage, example SQLite implementation, Room, Realm...
+Manage all local data storage: example SQLite implementation, Room, Realm...
 ##### Volatile data source
 Manage temporary storage.
 ##### Repository
