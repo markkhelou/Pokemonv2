@@ -69,7 +69,7 @@ class PokemonListUseCaseShould : BaseUnitTest() {
     private suspend fun mockErrorCase(): PokemonListUseCaseImpl {
         whenever(repo.fetchAllPokemons(OFFSET, LIMIT)).thenReturn(
             flow {
-                emit(Result.failure(backendErrorException))
+                emit(Result.failure<List<PokemonName>>(backendErrorException))
             }
         )
         return PokemonListUseCaseImpl(repo)

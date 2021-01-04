@@ -79,7 +79,7 @@ class PokemonListViewModelShould : BaseUnitTest() {
     private suspend fun mockErrorCase(): PokemonListViewModel {
         whenever(useCase.fetchAllPokemons(OFFSET, LIMIT)).thenReturn(
             flow {
-                emit(Result.failure(backendErrorException))
+                emit(Result.failure<List<Pokemon>>(backendErrorException))
             }
         )
         return PokemonListViewModel(useCase)

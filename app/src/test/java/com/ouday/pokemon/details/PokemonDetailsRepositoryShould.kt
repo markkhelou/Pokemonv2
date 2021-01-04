@@ -66,7 +66,7 @@ class PokemonDetailsRepositoryShould: BaseUnitTest() {
     private suspend fun mockErrorCase(): PokemonDetailsRepositoryImpl {
         whenever(service.fetchPokemonDetails(POKEMON_ID)).thenReturn(
             flow {
-                emit(Result.failure(backendErrorException))
+                emit(Result.failure<PokemonDetailsResponse>(backendErrorException))
             }
         )
         return PokemonDetailsRepositoryImpl(

@@ -49,7 +49,7 @@ class PokemonDetailsUseCaseShould: BaseUnitTest() {
     private suspend fun mockErrorCase(): PokemonDetailsUseCaseImpl {
         whenever(repo.fetchPokemonDetails(POKEMON_ID)).thenReturn(
             flow {
-                emit(Result.failure(backendErrorException))
+                emit(Result.failure<PokemonDetailsResponse>(backendErrorException))
             }
         )
         return PokemonDetailsUseCaseImpl(repo)
